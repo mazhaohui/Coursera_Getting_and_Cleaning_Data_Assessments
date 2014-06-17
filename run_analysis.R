@@ -58,5 +58,6 @@ X2_merge<-cbind(sub_act,X2_merge)  #put on the subject and activity
 
 s<-split(X2_merge,interaction(X2_merge[,1],X2_merge[,2],lex.order=T))     #group data
 d<-sapply(s,function(x) colMeans(x[,colnames(X2_merge)[3:length(X2_merge)]]))   #calculate mean
+d<-t(d)
 
 write.table(d,paste(Assmtdir,"group_average_merge.txt",sep=""))
